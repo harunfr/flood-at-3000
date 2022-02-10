@@ -40,9 +40,7 @@ copyBtn.addEventListener('click', (e) => {
 // Helpers
 async function translate(language, randomEmoji) {
   // Html encode.
-  const encodedInput = input.value.replace(/[\u00A0-\u9999<>\&]/g, function(i) {
-    return '&#'+i.charCodeAt(0)+';';
- })
+ const encodedInput = encodeURI(input.value)
  // Fetch data.
   const response = await fetch(
     'https://translate.argosopentech.com/translate',
